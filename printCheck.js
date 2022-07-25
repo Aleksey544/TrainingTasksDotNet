@@ -1,4 +1,6 @@
+//Друкування чеку з магазину
 function printCheck(productList) {
+    //Обчислення суму цін товарів конкретної категорії
     function priceCategorySum(category) {
         let priceCategory = 0
 
@@ -15,12 +17,14 @@ function printCheck(productList) {
     let price = 0
     let output = ''
 
+    //Додавання категорій, які не повторюються
     for (let i = 0; i < productList.length; i++)
     {
         if (!categories.includes(productList[i].category))
             categories.push(productList[i].category)
     }
 
+    //Додавання у вивід товарів по категоріям
     for (let i = 0; i < categories.length; i++)
     {
         let switcher = true
@@ -35,7 +39,7 @@ function printCheck(productList) {
                 }
 
                 output += '\n   ' + productList[j].product + '  ' + productList[j].price
-                price += productList[j].price
+                price += productList[j].price //обчислення суми всіх товарів
             }
         }
     }
